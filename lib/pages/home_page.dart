@@ -1,5 +1,6 @@
 import 'package:f_202010_todo_class/model/todo.dart';
 import 'package:flutter/material.dart';
+import 'package:f_202010_todo_class/widget/item.dart';
 
 class HomePageTodo extends StatefulWidget {
   @override
@@ -21,8 +22,8 @@ class _HomePageTodoState extends State<HomePageTodo> {
     );
   }
 
-  Widget _list(){
-      return ListView.builder(
+  Widget _list() {
+    return ListView.builder(
       itemCount: todos.length,
       itemBuilder: (context, posicion) {
         var element = todos[posicion];
@@ -31,13 +32,13 @@ class _HomePageTodoState extends State<HomePageTodo> {
     );
   }
 
-  Widget _item(Todo element, int posicion){
-    return Text('$posicion');
+  Widget _item(Todo element, int posicion) {
+    return ItemList(element: element);
   }
 
-  void _addTodo(){
+  void _addTodo() {
     setState(() {
-      todos.add(new Todo(title:"itemT", body: "itemB", completed: 0 ));
+      todos.add(new Todo(title: "itemT", body: "itemB", completed: 0));
     });
   }
 }
